@@ -10,6 +10,9 @@ import SwiftUI
 struct ItemDetails: View {
     let item: MenuItem;
     
+    // EnvObject gives us access to the StateObj defined at the app level
+    @EnvironmentObject var order: Order;
+    
     var body: some View {
         VStack {
             ZStack(alignment: .bottomTrailing)  {
@@ -26,6 +29,11 @@ struct ItemDetails: View {
             
             Text(item.description)
                 .padding()
+
+            Button("Order This") {
+                order.add(item: item)
+            }.font(.headline)
+
             Spacer()
         }
         .navigationTitle(item.name)
@@ -35,9 +43,7 @@ struct ItemDetails: View {
 
 struct ItemDetails_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ItemDetails(item: MenuItem.example)
-            ItemDetails(item: MenuItem.example)
-        }
+        ItemDetails(item: MenuItem.example)
+            .environmentObject(Order())
     }
 }
