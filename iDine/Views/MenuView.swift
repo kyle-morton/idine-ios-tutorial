@@ -1,14 +1,13 @@
 //
-//  ContentView.swift
+//  MenuView.swift
 //  iDine
 //
-//  Created by Kyle Morton on 8/16/22.
+//  Created by Kyle Morton on 8/22/22.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    
+struct MenuView: View {
     let menu = Bundle.main.decode([MenuSection].self, from: "menu.json");
     
     // HStack - Align horizontally side-by-side
@@ -34,8 +33,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MenuView()
     }
 }
