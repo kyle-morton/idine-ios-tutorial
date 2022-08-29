@@ -28,6 +28,8 @@ struct CheckoutView: View {
         
         return formatter.string(from: NSNumber(value: total + tipValue)) ?? "$0"
     }
+    
+
 
     
     var body: some View {
@@ -49,7 +51,7 @@ struct CheckoutView: View {
                 }
                 .pickerStyle(.segmented)
             }
-            Section(header: Text("TOTAL: \(totalPrice)")) {
+            Section(header: Text("TOTAL: \(totalPrice)").font(.title)) {
                 Button("Confirm Order") {
                     showingPaymentAlert.toggle()
                 }
